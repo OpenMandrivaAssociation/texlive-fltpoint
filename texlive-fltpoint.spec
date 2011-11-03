@@ -1,3 +1,9 @@
+# revision 15878
+# category Package
+# catalog-ctan /macros/latex/contrib/fltpoint
+# catalog-date 2008-04-20 19:53:04 +0200
+# catalog-license other-free
+# catalog-version 1.1b
 Name:		texlive-fltpoint
 Version:	1.1b
 Release:	1
@@ -46,6 +52,7 @@ Used, for example, by rccol.
 #- source
 %doc %{_texmfdistdir}/source/generic/fltpoint/fltpoint.dtx
 %doc %{_texmfdistdir}/source/generic/fltpoint/fltpoint.ins
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -56,3 +63,5 @@ Used, for example, by rccol.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
