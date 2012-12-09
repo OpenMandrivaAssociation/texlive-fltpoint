@@ -52,3 +52,17 @@ Used, for example, by rccol.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
+
+
+%changelog
+* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.1b-2
++ Revision: 751981
+- Rebuild to reduce used resources
+
+* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 1.1b-1
++ Revision: 718466
+- texlive-fltpoint
+- texlive-fltpoint
+- texlive-fltpoint
+- texlive-fltpoint
+
