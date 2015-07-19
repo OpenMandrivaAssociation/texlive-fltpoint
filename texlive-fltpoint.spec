@@ -6,7 +6,7 @@
 # catalog-version 1.1b
 Name:		texlive-fltpoint
 Version:	1.1b
-Release:	9
+Release:	10
 Summary:	Simple floating point arithmetic
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/fltpoint
