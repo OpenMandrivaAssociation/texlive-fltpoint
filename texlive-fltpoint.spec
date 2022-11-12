@@ -1,19 +1,13 @@
-# revision 15878
-# category Package
-# catalog-ctan /macros/latex/contrib/fltpoint
-# catalog-date 2008-04-20 19:53:04 +0200
-# catalog-license other-free
-# catalog-version 1.1b
 Name:		texlive-fltpoint
-Version:	1.1b
-Release:	11
+Version:	56594
+Release:	1
 Summary:	Simple floating point arithmetic
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/fltpoint
 License:	OTHER-FREE
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fltpoint.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fltpoint.doc.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fltpoint.source.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fltpoint.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fltpoint.doc.r%{version}.tar.xz
+Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fltpoint.source.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -25,12 +19,12 @@ The package provides simple floating point operations
 Used, for example, by rccol.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -45,24 +39,11 @@ Used, for example, by rccol.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1 -a2
+%setup -c -a1 -a2
+%autopatch -p1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.1b-2
-+ Revision: 751981
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 1.1b-1
-+ Revision: 718466
-- texlive-fltpoint
-- texlive-fltpoint
-- texlive-fltpoint
-- texlive-fltpoint
-
