@@ -1,6 +1,6 @@
 Name:		texlive-fltpoint
 Version:	56594
-Release:	1
+Release:	2
 Summary:	Simple floating point arithmetic
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/fltpoint
