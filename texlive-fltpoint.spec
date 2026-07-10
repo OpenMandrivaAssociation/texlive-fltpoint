@@ -1,49 +1,25 @@
-Name:		texlive-fltpoint
-Version:	56594
-Release:	2
+%global tl_name fltpoint
+%global tl_revision 56594
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	1.1b
+Release:	%{tl_revision}.1
 Summary:	Simple floating point arithmetic
 Group:		Publishing
-URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/fltpoint
-License:	OTHER-FREE
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fltpoint.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fltpoint.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fltpoint.source.r%{version}.tar.xz
+URL:		https://www.ctan.org/tex-archive/macros/generic/fltpoint
+License:	other-free
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/fltpoint.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/fltpoint.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/fltpoint.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The package provides simple floating point operations
-(addition, subtraction, multiplication, division and rounding).
-Used, for example, by rccol.
+The package provides simple floating point operations (addition,
+subtraction, multiplication, division and rounding). Used, for example,
+by rccol.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/generic/fltpoint/deccomma.sty
-%{_texmfdistdir}/tex/generic/fltpoint/fltpoint.sty
-%{_texmfdistdir}/tex/generic/fltpoint/fltpoint.tex
-%doc %{_texmfdistdir}/doc/generic/fltpoint/README
-%doc %{_texmfdistdir}/doc/generic/fltpoint/fltpoint.pdf
-#- source
-%doc %{_texmfdistdir}/source/generic/fltpoint/fltpoint.dtx
-%doc %{_texmfdistdir}/source/generic/fltpoint/fltpoint.ins
-
-#-----------------------------------------------------------------------
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
